@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Login</div>
+    <div class="panel-body">
+        <form #userForm="ngForm">
+            <div class="form-group">
+                <label for="exampleInputfirstname">username</label>
+                <input type="text" required name="username" class="form-control" id="exampleInputfirstname"  placeholder="Username" [(ngModel)]="user.username">
+                
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputfirstname">password</label>
+                  <input type="text" required name="password" class="form-control" id="exampleInputfirstname"  placeholder="Password" [(ngModel)]="user.password">
+                  
+                </div>
+            <div class="form-group">
+              <label for="exampleInputfirstname">First Name</label>
+              <input type="text" required name="firstname" class="form-control" id="exampleInputfirstname" aria-describedby="emailHelp" placeholder="First Name" [(ngModel)]="user.firstname">
+              
+            </div>
+            <div class="form-group">
+              <label for="exampleInputlastname">Last Name</label>
+              <input type="text" required name="lastname" class="form-control" id="exampleInputlastname" placeholder="Last Name" [(ngModel)]="user.lastname">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputemail">Email</label>
+                <input type="text" required name="email" class="form-control" id="exampleInputemail" placeholder="Email" [(ngModel)]="user.email">
+              </div>
+          
+            <button type="submit" class="btn btn-primary" (click)="register()">Submit</button>
+          </form>
+    </div>
+    </div>

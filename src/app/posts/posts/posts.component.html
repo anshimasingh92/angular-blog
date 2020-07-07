@@ -1,0 +1,40 @@
+
+<div>
+    <router-outlet name="editpost" (activate)='onActivate($event)' (deactivate)='onDeactivate($event)'></router-outlet>
+</div>
+<div *ngIf="posts">
+  <div *ngFor="let post of posts; let i = index">
+    <p>Created By: {{post.username}}</p>
+    <p>Title: {{post.title}}</p>
+    <p>Description: {{post.description}}</p>
+    <p>Liked by {{post.likes}}</p>
+    <!-- <a href="#" [routerLink]="[{outlets:{editpost:['editpost',post._id]}}]">
+                   Edit
+                </a> -->
+
+    <button [disabled]="post.like" (click)="like(post._id)">{{post.like ? 'Liked '+post.likes.length:'Like'}}</button>
+    <!-- <button (click)="delete(post._id)">Delete</button> -->
+    <button (click)="showcomment(i)">{{commentStatus[i] ? 'Hide Comment':'Show Comment'}}</button>
+    <div *ngIf="commentStatus[i]">
+        <div *ngFor="let comment of post.comments">
+            <br>
+            <p>{{comment.uname}}</p>
+            <p>{{comment.title}}</p>
+            <p>{{comment.description}}</p>
+           
+          </div>
+          <div>
+              
+            <br>
+            Add Comment
+            <form>
+              
+              <input type="text" name="description" [(ngModel)]="commentForm.description"/>
+              <button type="button" (click)="addcomment(post._id)">Add Comment</button>
+            </form>
+          </div>
+    </div>
+   
+    <br><br><br>
+  </div>
+</div>
